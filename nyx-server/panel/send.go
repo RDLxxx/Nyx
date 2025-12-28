@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"nyx-server/conf"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/RDLxxx/Nyx/nyx-server/conf"
 
 	"github.com/gorilla/websocket"
 )

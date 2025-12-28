@@ -1,0 +1,15 @@
+build nyx-native firstly
+
+
+npm i
+
+
+If you got that error or similiar(npm i):
+npm error code ERR_SSL_CIPHER_OPERATION_FAILED
+error Error: 6C500000:error:1C800066:Provider routines:ossl_gcm_stream_update:cipher operation failed:openssl\providers\implementations\ciphers\ciphercommon_gcm.c:346:
+
+
+do that:
+remove "electron" and "electron-builder" from "devDependencies" (package.json)
+and run that:
+npm install electron@39.2.7 --save-dev  

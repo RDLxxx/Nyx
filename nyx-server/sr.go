@@ -3,7 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
-	"nyx-server/panel"
+
+	"github.com/RDLxxx/Nyx/nyx-server/panel"
 )
 
 func main() {

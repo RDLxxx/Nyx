@@ -3,8 +3,9 @@ package panel
 import (
 	"log"
 	"net/http"
-	"nyx-server/conf"
 	"time"
+
+	"github.com/RDLxxx/Nyx/nyx-server/conf"
 
 	"github.com/gorilla/websocket"
 )

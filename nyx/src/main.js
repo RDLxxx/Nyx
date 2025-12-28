@@ -17,7 +17,8 @@ function createWindow() {
   });
 
   win.loadFile('src/ui/index.html');
-  win.webContents.openDevTools();
+  /*
+  win.webContents.openDevTools(); */
   ipcMain.on('close-window-h12uhd', () => {
     const window = BrowserWindow.getFocusedWindow();
     if (window) {
