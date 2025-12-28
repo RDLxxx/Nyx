@@ -1,0 +1,22 @@
+{
+  "name": "nyx",
+  "version": "1.0.0",
+  "description": "nyx app",
+  "license": "ISC",
+  "author": "rdl",
+  "type": "commonjs",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "cd ../nyx-native && npm run install",
+    "make": "electron-builder --win --config electron-builder.yml"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "nyx-native": "file:../nyx-native"
+  }
+}

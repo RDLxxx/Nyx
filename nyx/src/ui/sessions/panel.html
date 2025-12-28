@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.0);
+    margin: 0;
+    padding: 0;
+}
+.main-app {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 245, 240, 0.9) 50%,
+        rgba(255, 232, 220, 0.9) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+}
+.oo {
+    -webkit-app-region: drag;
+}
+</style>
+<body>
+  <div class="oo">
+    drag area
+  </div>
+  <section class="main-app">
+    <h1>Панель сессий</h1>
+    <button onclick="window.location.reload();">Обновить</button>
+  </section>
+  <script>
+    const crypto = require('crypto');
+
+    const pass = 'test123'
+    const wsadr = 'ws://127.0.0.1:8000/ws'
+    const ws = new WebSocket(wsadr);
+   
+    ws.onopen = () => {
+      console.log('Connected');
+      
+      ws.send('Initial');
+
+      
+    };
+   
+    ws.onmessage = (event) => {
+      if (event.data === 'false') {
+        var salt = ""
+        const saltws = new WebSocket(wsadr)
+        const regws = new WebSocket(wsadr)
+
+        saltws.onopen = () => {
+          saltws.send('getsalt');
+        }
+        saltws.onmessage = (evt) => {
+          salt = evt.data
+        };
+
+        regws.onopen = () => {
+          var hashpass = crypto.createHash('sha256').update(pass + salt).digest('hex');
+
+          var regstr = 'regpanel|' + hashpass
+          regws.send(regstr);
+        };
+        regws.onmessage = (evt) => {
+          console.log('reg:', evt.data);
+        };
+        regws.close = () => console.log('regws closed');
+        saltws.close = () => console.log('saltws closed');
+      } else {
+        
+        console.log(event.data);
+      }
+    };
+   
+    ws.onclose = () => console.log('Disconnected');
+    ws.onerror = (error) => console.error('WebSocket Error:', error);
+  </script>
+</body>
+</html>

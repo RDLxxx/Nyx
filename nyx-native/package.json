@@ -1,0 +1,16 @@
+{
+  "name": "nyx-native",
+  "version": "1.0.0",
+  "description": "nyx module",
+  "license": "ISC",
+  "author": "rdl",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.5.0",
+    "node-gyp": "^12.1.0"
+  }
+}

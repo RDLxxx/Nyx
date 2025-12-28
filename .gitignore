@@ -1,0 +1,7 @@
+nn/
+.vscode/
+nyx/node_modules
+nyx/out
+nyx-native/node_modules
+nyx-native/node_inc
+nyx-native/build
