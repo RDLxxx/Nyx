@@ -5,3 +5,5 @@ nyx/out
 nyx-native/node_modules
 nyx-native/node_inc
 nyx-native/build
+nyx-native/package-lock.json
+nyx/package-lock.json
