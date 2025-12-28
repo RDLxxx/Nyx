@@ -1,4 +1,4 @@
-module nyx-server
+module github.com/RDLxxx/Nyx/nyx-server
 
 go 1.25.5
 
