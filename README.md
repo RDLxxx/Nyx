@@ -20,7 +20,9 @@ NYX. Remote access program for administration.
 graph TD;
     Client-->RTMP_Server;
     Client-->File_Server;
+    Client-->Commands_Output;
     RTMP_Server-->Server;
+    Commands_Output-->Server;
     File_Server-->Server;
     Server-->Panel;
     Panel-->Commands;
